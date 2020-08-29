@@ -20,7 +20,7 @@ jobs:
       with:
         project: iosBaseApp.xcodeproj
         scheme: iosBaseApp
-        destination: platform=macOS
+        destination: platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest
         action: test
     - name: Build App
       run: xcodebuild -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "generic/platform=iOS" -allowProvisioningUpdates | xcpretty
