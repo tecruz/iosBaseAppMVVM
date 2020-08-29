@@ -12,10 +12,12 @@ jobs:
     runs-on: macos-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Force Xcode 11
       run: sudo xcode-select -switch /Applications/Xcode_11.3.app
     - name: Run tests
       run: xcodebuild clean test -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" | xcpretty
     - name: Build App
       run: xcodebuild -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "generic/platform=iOS" | xcpretty
+    - name: Run CodeCov
+      uses: codecov/codecov-action@v1
