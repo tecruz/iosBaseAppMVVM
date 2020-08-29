@@ -18,6 +18,6 @@ jobs:
     - name: Run tests
       run: xcodebuild clean test -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest" | xcpretty
     - name: Build App
-      run: xcodebuild -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "generic/platform=iOS" | xcpretty
+      run: xcodebuild -project "iosBaseApp.xcodeproj" -scheme "iosBaseApp" -destination "generic/platform=iOS" -allowProvisioningUpdates | xcpretty
     - name: Run CodeCov
       uses: codecov/codecov-action@v1
