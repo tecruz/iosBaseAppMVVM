@@ -10,10 +10,12 @@ jobs:
   build:
 
     runs-on: macos-latest
-
+    
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - name: Build and test
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        project: iosBaseApp.xcodeproj
+        scheme: iosBaseApp
+        destination: platform=macOS
+        action: test
